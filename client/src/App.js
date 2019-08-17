@@ -68,18 +68,18 @@ class App extends Component {
 
     // our put method that uses our backend api
     // to create new query into our data base
-    putDataToDB = (message) => {
-        let currentIds = this.state.data.map((data) => data.id);
-        let idToBeAdded = 0;
-        while (currentIds.includes(idToBeAdded)) {
-            ++idToBeAdded;
-        }
-
-        axios.post('http://localhost:3001/api/putData', {
-            id: idToBeAdded,
-            message: message,
-        });
-    };
+    // putDataToDB = (message) => {
+    //     let currentIds = this.state.data.map((data) => data.id);
+    //     let idToBeAdded = 0;
+    //     while (currentIds.includes(idToBeAdded)) {
+    //         ++idToBeAdded;
+    //     }
+    //
+    //     axios.post('http://localhost:3001/api/putData', {
+    //         id: idToBeAdded,
+    //         message: message,
+    //     });
+    // };
 
     // our delete method that uses our backend api
     // to remove existing database information
@@ -120,6 +120,7 @@ class App extends Component {
     // it is easy to understand their functions when you
     // see them render into our screen
     render() {
+        console.log(this.props.register);
         const { data } = this.state;
         return (
             <div>
