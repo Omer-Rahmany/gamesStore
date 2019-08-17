@@ -65,16 +65,17 @@ router.delete('/deleteData', (req, res) => {
 router.post('/putData', (req, res) => {
     let data = new Data();
 
-    const { id, message } = req.body;
+    const { email,username,password } = req.body;
 
-    if ((!id && id !== 0) || !message) {
-        return res.json({
-            success: false,
-            error: 'INVALID INPUTS',
-        });
-    }
-    data.message = message;
-    data.id = id;
+    // if ((!id && id !== 0) || !message) {
+    //     return res.json({
+    //         success: false,
+    //         error: 'INVALID INPUTS',
+    //     });
+    // }
+    data.email = email;
+    data.username = username;
+    data.password = password;
     data.save((err) => {
         if (err) return res.json({ success: false, error: err });
         return res.json({ success: true });
