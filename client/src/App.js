@@ -1,38 +1,57 @@
 // /client/App.js
 import React, { Component } from 'react';
 import axios from 'axios';
+import Login from  "./Login";
+import Register from  "./Register";
+import "./css/stylesheet.scss";
 
 class App extends Component {
     // initialize our state
     state = {
         data: [],
         id: 0,
-        message: null,
-        intervalIsSet: false,
-        idToDelete: null,
-        idToUpdate: null,
-        objectToUpdate: null,
+        isLoginOpen: true,
+        isRegisterOpen: false
+        //
+        // data: [],
+        // id: 0,
+        // message: null,
+        // intervalIsSet: false,
+        // idToDelete: null,
+        // idToUpdate: null,
+        // objectToUpdate: null,
     };
+
+    showLoginBox() {
+        this.setState({isLoginOpen: true, isRegisterOpen: false});
+    }
+
+    showRegisterBox() {
+        this.setState({isRegisterOpen: true, isLoginOpen: false});
+    }
+
+
+
 
     // when component mounts, first thing it does is fetch all existing data in our db
     // then we incorporate a polling logic so that we can easily see if our db has
     // changed and implement those changes into our UI
-    componentDidMount() {
-        this.getDataFromDb();
-        if (!this.state.intervalIsSet) {
-            let interval = setInterval(this.getDataFromDb, 1000);
-            this.setState({ intervalIsSet: interval });
-        }
-    }
+    // componentDidMount() {
+    //     this.getDataFromDb();
+    //     if (!this.state.intervalIsSet) {
+    //         let interval = setInterval(this.getDataFromDb, 1000);
+    //         this.setState({ intervalIsSet: interval });
+    //     }
+    // }
 
     // never let a process live forever
     // always kill a process everytime we are done using it
-    componentWillUnmount() {
-        if (this.state.intervalIsSet) {
-            clearInterval(this.state.intervalIsSet);
-            this.setState({ intervalIsSet: null });
-        }
-    }
+    // componentWillUnmount() {
+    //     if (this.state.intervalIsSet) {
+    //         clearInterval(this.state.intervalIsSet);
+    //         this.setState({ intervalIsSet: null });
+    //     }
+    // }
 
     // just a note, here, in the front end, we use the id key of our data object
     // in order to identify which we want to Update or delete.
@@ -64,38 +83,38 @@ class App extends Component {
 
     // our delete method that uses our backend api
     // to remove existing database information
-    deleteFromDB = (idTodelete) => {
-        parseInt(idTodelete);
-        let objIdToDelete = null;
-        this.state.data.forEach((dat) => {
-            if (dat.id == idTodelete) {
-                objIdToDelete = dat._id;
-            }
-        });
-
-        axios.delete('http://localhost:3001/api/deleteData', {
-            data: {
-                id: objIdToDelete,
-            },
-        });
-    };
+    // deleteFromDB = (idTodelete) => {
+    //     parseInt(idTodelete);
+    //     let objIdToDelete = null;
+    //     this.state.data.forEach((dat) => {
+    //         if (dat.id == idTodelete) {
+    //             objIdToDelete = dat._id;
+    //         }
+    //     });
+    //
+    //     axios.delete('http://localhost:3001/api/deleteData', {
+    //         data: {
+    //             id: objIdToDelete,
+    //         },
+    //     });
+    // };
 
     // our update method that uses our backend api
     // to overwrite existing data base information
-    updateDB = (idToUpdate, updateToApply) => {
-        let objIdToUpdate = null;
-        parseInt(idToUpdate);
-        this.state.data.forEach((dat) => {
-            if (dat.id == idToUpdate) {
-                objIdToUpdate = dat._id;
-            }
-        });
-
-        axios.post('http://localhost:3001/api/updateData', {
-            id: objIdToUpdate,
-            update: { message: updateToApply },
-        });
-    };
+    // updateDB = (idToUpdate, updateToApply) => {
+    //     let objIdToUpdate = null;
+    //     parseInt(idToUpdate);
+    //     this.state.data.forEach((dat) => {
+    //         if (dat.id == idToUpdate) {
+    //             objIdToUpdate = dat._id;
+    //         }
+    //     });
+    //
+    //     axios.post('http://localhost:3001/api/updateData', {
+    //         id: objIdToUpdate,
+    //         update: { message: updateToApply },
+    //     });
+    // };
 
     // here is our UI
     // it is easy to understand their functions when you
@@ -103,6 +122,31 @@ class App extends Component {
     render() {
         const { data } = this.state;
         return (
+            <div>
+                <div className="root-container">
+                    <div className="box-container">
+                        <div
+                            className={"controller " + (this.state.isLoginOpen
+                                ? "selected-controller"
+                                : "")}
+                            onClick={this
+                                .showLoginBox
+                                .bind(this)}>
+                            Login
+                        </div>
+                        <div
+                            className={"controller " + (this.state.isRegisterOpen
+                                ? "selected-controller"
+                                : "")}
+                            onClick={this
+                                .showRegisterBox
+                                .bind(this)}>
+                            Register
+                        </div>
+                        {this.state.isLoginOpen && <Login/>}
+                        {this.state.isRegisterOpen && <Register/>}
+                    </div>
+                </div>
             <div>
                 <ul>
                     {data.length <= 0
@@ -126,38 +170,39 @@ class App extends Component {
                         ADD
                     </button>
                 </div>
-                <div style={{ padding: '10px' }}>
-                    <input
-                        type="text"
-                        style={{ width: '200px' }}
-                        onChange={(e) => this.setState({ idToDelete: e.target.value })}
-                        placeholder="put id of item to delete here"
-                    />
-                    <button onClick={() => this.deleteFromDB(this.state.idToDelete)}>
-                        DELETE
-                    </button>
-                </div>
-                <div style={{ padding: '10px' }}>
-                    <input
-                        type="text"
-                        style={{ width: '200px' }}
-                        onChange={(e) => this.setState({ idToUpdate: e.target.value })}
-                        placeholder="id of item to update here"
-                    />
-                    <input
-                        type="text"
-                        style={{ width: '200px' }}
-                        onChange={(e) => this.setState({ updateToApply: e.target.value })}
-                        placeholder="put new value of the item here"
-                    />
-                    <button
-                        onClick={() =>
-                            this.updateDB(this.state.idToUpdate, this.state.updateToApply)
-                        }
-                    >
-                        UPDATE
-                    </button>
-                </div>
+                {/*<div style={{ padding: '10px' }}>*/}
+                {/*    <input*/}
+                {/*        type="text"*/}
+                {/*        style={{ width: '200px' }}*/}
+                {/*        onChange={(e) => this.setState({ idToDelete: e.target.value })}*/}
+                {/*        placeholder="put id of item to delete here"*/}
+                {/*    />*/}
+                {/*    <button onClick={() => this.deleteFromDB(this.state.idToDelete)}>*/}
+                {/*        DELETE*/}
+                {/*    </button>*/}
+                {/*</div>*/}
+                {/*<div style={{ padding: '10px' }}>*/}
+                {/*    <input*/}
+                {/*        type="text"*/}
+                {/*        style={{ width: '200px' }}*/}
+                {/*        onChange={(e) => this.setState({ idToUpdate: e.target.value })}*/}
+                {/*        placeholder="id of item to update here"*/}
+                {/*    />*/}
+                {/*    <input*/}
+                {/*        type="text"*/}
+                {/*        style={{ width: '200px' }}*/}
+                {/*        onChange={(e) => this.setState({ updateToApply: e.target.value })}*/}
+                {/*        placeholder="put new value of the item here"*/}
+                {/*    />*/}
+                {/*    <button*/}
+                {/*        onClick={() =>*/}
+                {/*            this.updateDB(this.state.idToUpdate, this.state.updateToApply)*/}
+                {/*        }*/}
+                {/*    >*/}
+                {/*        UPDATE*/}
+                {/*    </button>*/}
+                {/*</div>*/}
+            </div>
             </div>
         );
     }
