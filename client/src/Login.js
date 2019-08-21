@@ -5,12 +5,29 @@ class Login extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+
+        };
     }
 
     submitLogin(e) {
+        this.getDataFromDb();
 
     }
+
+    getDataFromDb = async () => {
+        fetch('http://localhost:3001/api/getData')
+            .then((data) => data.json())
+            .then((res) => this.setState({ data: res.data }))
+            .then((data) => console.log(data));
+    };
+
+    // getDataFromDb = () => {
+    //     fetch('http://localhost:3001/api/getData')
+    //         .then((data) => data.json())
+    //         .then((res) => this.setState({ data: res.data }));
+    // };
+
 
     render() {
         return (

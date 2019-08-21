@@ -1,14 +1,20 @@
 const mongoose = require('mongoose');
 const express = require('express');
-let cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const Data = require('./data');
+let cors = require('cors');
 
 const API_PORT = 3001;
 const app = express();
 app.use(cors());
 const router = express.Router();
+
+//Noam change for items
+const items = require('./routes/api/Items');
+app.use(bodyParser.json());
+app.use('/api/items', items);
+//End of noam change
 
 // this is our MongoDB database
 // const dbRoute =
@@ -16,7 +22,9 @@ const router = express.Router();
 const dbRoute = 'mongodb+srv://admin:admin@games-oh3lb.mongodb.net/test?retryWrites=true&w=majority';
 
 // connects our back end code with the database
-mongoose.connect(dbRoute, { useNewUrlParser: true });
+mongoose.connect(dbRoute, { useNewUrlParser: true })
+    .then(() => console.log("DB connection succeed"))
+    .catch((err) => console.log(err));
 
 let db = mongoose.connection;
 
@@ -28,7 +36,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // (optional) only made for logging and
 // bodyParser, parses the request body to be a readable json format
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 app.use(logger('dev'));
 
 // this is our get method
