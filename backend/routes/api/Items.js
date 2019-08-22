@@ -3,7 +3,6 @@ const router = express.Router();
 
 const Item = require('../../models/Item');
 
-
 // @route GET api/items
 // @desc Get all items
 // @access Public
@@ -17,7 +16,12 @@ router.get('/', (req,res) => {
 // @access Public
 router.post('/', (req,res) => {
     const newItem = new Item({
-        name: req.body.name
+        name: req.body.name,
+        image: req.body.image,
+        price: req.body.price,
+        details: req.body.price,
+        count: req.body.count,
+        total: req.body.total
     });
 
     newItem.save().then(item => res.json(item));

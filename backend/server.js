@@ -14,9 +14,8 @@ app.use(bodyParser.json());
 const router = express.Router();
 
 //Noam change for items
-// const items = require('./routes/api/Items');
-// app.use(bodyParser.json());
-// app.use('/api/items', items);
+const items = require('./routes/api/Items');
+app.use('/api/items', items);
 //End of noam change
 
 const dbRoute = 'mongodb+srv://admin:admin@games-oh3lb.mongodb.net/test?retryWrites=true&w=majority';

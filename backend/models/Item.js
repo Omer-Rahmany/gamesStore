@@ -6,9 +6,13 @@ const ItemSchema = new Schema({
        type: String,
        required: true
    },
+    image: {
+        type: String,
+        required: true
+    },
     price: {
         type: Number,
-        required: false
+        required: true
     },
     stock: {
        type: Boolean,
@@ -17,6 +21,22 @@ const ItemSchema = new Schema({
     date: {
        type: Date,
         default: Date.now()
+    },
+    inCart: {
+        type: Boolean,
+        required: false
+    },
+    details: {
+        type: String,
+        required: true
+    },
+    count: {
+        type: Number,
+        required: true
+    },
+    total: {
+        type: Number,
+        required: true
     }
 });
 

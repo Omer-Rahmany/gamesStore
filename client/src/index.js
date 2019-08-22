@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {ProductProvider} from "./context";
+
 import {Route, BrowserRouter as Router} from "react-router-dom";
 import Home from './components/Home';
 
@@ -16,5 +18,9 @@ import Home from './components/Home';
 
 // ReactDOM.render(routing, document.getElementById('root'));
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <ProductProvider>
+        <App />
+    </ProductProvider>
+    , document.getElementById('root'));
 serviceWorker.register();
