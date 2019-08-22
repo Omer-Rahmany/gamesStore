@@ -48,8 +48,6 @@ router.get('/getData', (req, res) => {
     });
 });
 
-
-
 // this is our update method
 // this method overwrites existing data in our database
 router.post('/updateData', (req, res) => {
