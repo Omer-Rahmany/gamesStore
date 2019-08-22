@@ -1,24 +1,24 @@
+
 const mongoose = require('mongoose');
 const express = require('express');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const Data = require('./data');
-let cors = require('cors');
+const ItemsData = require('./models/Item');
 
+let cors = require('cors');
 const API_PORT = 3001;
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 const router = express.Router();
 
 //Noam change for items
-const items = require('./routes/api/Items');
-app.use(bodyParser.json());
-app.use('/api/items', items);
+// const items = require('./routes/api/Items');
+// app.use(bodyParser.json());
+// app.use('/api/items', items);
 //End of noam change
 
-// this is our MongoDB database
-// const dbRoute =
-//     'mongodb://<your-db-username-here>:<your-db-password-here>@ds249583.mlab.com:49583/fullstack_app';
 const dbRoute = 'mongodb+srv://admin:admin@games-oh3lb.mongodb.net/test?retryWrites=true&w=majority';
 
 // connects our back end code with the database
@@ -47,6 +47,17 @@ router.get('/getData', (req, res) => {
         return res.json({ success: true, data: data });
     });
 });
+
+// this is our get method
+// this method fetches all available data in our database
+router.get('/getProductData', (req, res) => {
+    ItemsData.find((err, data) => {
+        if (err) return res.json({ success: false, error: err });
+        return res.json({ success: true, data: data });
+    });
+});
+
+
 
 // this is our update method
 // this method overwrites existing data in our database
