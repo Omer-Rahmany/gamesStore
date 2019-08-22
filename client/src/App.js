@@ -11,7 +11,7 @@ import {Route, BrowserRouter as Router} from "react-router-dom";
 class App extends Component {
     // initialize our state
     state = {
-        isLoggedIn: false,
+        isLoggedIn: true,
         data: [],
         id: 0,
         isLoginOpen: true,
