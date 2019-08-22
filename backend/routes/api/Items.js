@@ -7,8 +7,8 @@ const Item = require('../../models/Item');
 // @desc Get all items
 // @access Public
 router.get('/', (req,res) => {
- Item.find()
-     .then(items => res.json(items));
+    Item.find()
+        .then(items => res.json(items));
 });
 
 // @route POST api/items
