@@ -19,7 +19,7 @@ router.post('/', (req,res) => {
         name: req.body.name,
         image: req.body.image,
         price: req.body.price,
-        details: req.body.price,
+        details: req.body.details,
         count: req.body.count,
         total: req.body.total
     });
