@@ -9,16 +9,54 @@ class ProductProvider extends Component {
         super(props)
         this.state = {
             success: false,
-            products: []
+            products: [],
+            detailedProduct: [],
+            cart: [],
+            cartTotal:0
+
         }
     };
 
-    handleProduct = () => {
-        console.log("hello from product");
+
+    getItem = (id) => {
+        const product = this.state.products.find(item => item._id === id);
+        return product;
+    }
+
+    increment = (id) => {
+
+    }
+
+    decrement = (id) => {
+
+    }
+
+    removeItem = (id) => {
+
+    }
+
+    clearCart = () => {
+
+    }
+
+
+    handleProduct = (id) => {
+        const product = this.getItem(id);
+        this.setState(() => {
+            return {detailedProduct:product}
+        });
     };
 
-    addToCart = () => {
-        console.log("hello from add to cart");
+    addToCart = (id) => {
+        let tempProducts = [...this.state.products];
+        const index = tempProducts.indexOf(this.getItem(id));
+        const product = tempProducts[index];
+        product.inCart = true;
+        product.count = 1;
+        product.total = product.price;
+        this.setState(()=>{
+            return {products: tempProducts, cart:[...this.state.cart, product]};
+        },()=>console.log(this.state));
     };
 
     componentDidMount() {
@@ -36,7 +74,11 @@ class ProductProvider extends Component {
             <ProductContext.Provider value={{
                ...this.state,
                 handleProduct: this.handleProduct,
-                addToCart: this.addToCart
+                addToCart: this.addToCart,
+                increment: this.increment,
+                decrement: this.decrement,
+                removeItem: this.removeItem,
+                clearCart: this.clearCart
             }
                 // this.state.data
             }>
