@@ -1,0 +1,9 @@
+.btn-black{
+    background: transparent;
+    text-transform: capitalize;
+    font-size: 0.8rem !important;
+    color: #70a1ff;
+    border-radius: 0 !important;
+    border: 0.1rem solid #e74c3c !important;
+}
+

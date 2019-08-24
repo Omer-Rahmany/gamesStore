@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import CartColumns from "./CartColumns";
 import Title from "./Title";
 import {ProductConsumer} from "../context";
+import CartList from "./CartList";
 
 class Cart extends Component {
     render() {
@@ -19,6 +20,7 @@ class Cart extends Component {
                                 <React.Fragment>
                                     <Title name="your" title ="cart" />
                                     <CartColumns />
+                                    <CartList value={value} />
                                 </React.Fragment>
                             );
                         }
