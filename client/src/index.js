@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {ProductProvider} from "./context";
@@ -24,3 +25,12 @@ ReactDOM.render(
     </ProductProvider>
     , document.getElementById('root'));
 serviceWorker.register();
+
+// ReactDOM.render(
+//     <BrowserRouter>
+//         <ProductProvider>
+//         <App />
+//     </ProductProvider>
+//      </BrowserRouter>
+//     , document.getElementById('root'));
+// serviceWorker.register();
