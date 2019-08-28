@@ -15,9 +15,6 @@ class Home extends Component {
                 <Navbar />
                 <Switch>
                     <Route exact path="/home" component={ProductList} />
-                    <Route path="/details" component={Details} />
-                    <Route path="/cart" component={Cart} />
-                    <Route component={Default} />
                 </Switch>
             </React.Fragment>
         );
