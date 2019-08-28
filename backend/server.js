@@ -48,12 +48,12 @@ app.use(logger('dev'));
 
 // this is our get method
 // this method fetches all available data in our database
-router.get('/getData', (req, res) => {
-    Data.find((err, data) => {
-        if (err) return res.json({ success: false, error: err });
-        return res.json({ success: true, data: data });
-    });
-});
+// router.get('/getData', (req, res) => {
+//     Data.find((err, data) => {
+//         if (err) return res.json({ success: false, error: err });
+//         return res.json({ success: true, data: data });
+//     });
+// });
 
 // this is our get method
 // this method fetches all available data in our database
@@ -108,14 +108,6 @@ router.post('/putData', (req, res) => {
     });
 });
 
-router.get('/home', function(req, res) {
-    res.send('Welcome!');
-});
-
-router.get('/secret', withAuth, function(req, res) {
-    res.send('The password is potato');
-});
-
 router.get('/checkToken', withAuth, function(req, res) {
     res.sendStatus(200);
 });
@@ -164,7 +156,7 @@ router.post('/authenticate', function(req, res) {
                     // Issue token
                     const payload = { email };
                     const token = jwt.sign(payload, secret, {
-                        expiresIn: '1h'
+                        expiresIn: '5m'
                     });
                     res.cookie('token', token, { httpOnly: true })
                         .sendStatus(200);

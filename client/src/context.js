@@ -17,7 +17,6 @@ class ProductProvider extends Component {
         }
     };
 
-
     getItem = (id) => {
         const product = this.state.products.find(item => item._id === id);
         return product;
@@ -88,8 +87,5 @@ class ProductProvider extends Component {
     }
 }
 
-
-
 const ProductConsumer = ProductContext.Consumer;
-
 export {ProductProvider, ProductConsumer};

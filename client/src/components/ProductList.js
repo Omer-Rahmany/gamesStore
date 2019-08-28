@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Product from "./Product";
 import Title from './Title';
-import {ProductConsumer} from "../context";
+import {ProductConsumer, ProductProvider} from "../context";
 
 class ProductList extends Component {
     state={
@@ -23,12 +23,10 @@ class ProductList extends Component {
                                 console.log(value);
                             }}
                         </ProductConsumer>
-
                         </div>
                     </div>
                 </div>
             </React.Fragment>
-            // {/*<Product />*/}
         );
     }
 }

@@ -28,11 +28,7 @@ class Cart extends Component {
                         }
                     }}
                 </ProductConsumer>
-
-
-
             </section>
-
         );
     }
 }
