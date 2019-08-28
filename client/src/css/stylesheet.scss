@@ -202,3 +202,12 @@ $blue_theme: #70a1ff;
     border: solid white;
     border-width: 0 3px 3px 0;
 }
+
+.searchTerm {
+    border: 3px solid #153569;
+    padding: 5px;
+    height: 40px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #18191a;
+}

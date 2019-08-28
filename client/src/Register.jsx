@@ -46,6 +46,7 @@ class Register extends Component {
             <form onSubmit={this.onSubmit} className="w3-center">
                 <h1>Register Below!</h1>
                 <p>Please fill in this form to create an account.</p>
+                <div>
                 <input
                     type="email"
                     name="email"
@@ -54,6 +55,8 @@ class Register extends Component {
                     onChange={this.handleInputChange}
                     required
                 />
+                </div>
+                <div>
                 <input
                     type="username"
                     name="username"
@@ -62,6 +65,8 @@ class Register extends Component {
                     onChange={this.handleInputChange}
                     required
                 />
+                </div>
+                <div>
                 <input
                     type="password"
                     name="password"
@@ -70,6 +75,7 @@ class Register extends Component {
                     onChange={this.handleInputChange}
                     required
                 />
+                </div>
                 <input type="submit" value="Submit"/>
 
                 <div className="container signin">

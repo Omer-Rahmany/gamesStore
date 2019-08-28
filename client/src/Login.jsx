@@ -51,14 +51,17 @@ class Login extends Component {
                 <div className="imgcontainer">
                     <img src={require("./components/" + "Images/img_avatar.png")} className="avatar" alt="Avatar" />
                 </div>
+                <div>
                 <input
                     type="text"
                     name="username"
-                    placeholder="Enter UserName"
+                    placeholder="Enter User Name"
                     value={this.state.username}
                     onChange={this.handleInputChange}
                     required
                 />
+                </div>
+                <div>
                 <input
                     type="password"
                     name="password"
@@ -67,6 +70,7 @@ class Login extends Component {
                     onChange={this.handleInputChange}
                     required
                 />
+                </div>
                 <div>
                 <label>
                    Remember Me:
