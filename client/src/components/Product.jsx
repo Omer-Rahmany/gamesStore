@@ -21,7 +21,7 @@ class Product extends Component {
                                     value.handleProduct(_id)
                                  }>
                                 <Link to="/details">
-                                    <img src={require("./" + image)} alt="product-image" className="card-img-top" />
+                                    <img src={require("./" + image)} alt="product" className="card-img-top" />
                                 </Link>
                                 <button className="cart-btn"
                                         disabled={inCart}

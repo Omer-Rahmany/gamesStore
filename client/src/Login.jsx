@@ -6,7 +6,9 @@ class Login extends Component {
         super(props)
         this.state = {
             email : '',
-            password: ''
+            username: '',
+            password: '',
+            rememberMe:true
         };
     }
     handleInputChange = (event) => {
@@ -14,6 +16,10 @@ class Login extends Component {
         this.setState({
             [name]: value
         });
+    }
+
+    toggleRememberMe = (event) => {
+        this.setState({rememberMe: !this.state.rememberMe})
     }
 
     onSubmit = (event) => {
@@ -40,13 +46,16 @@ class Login extends Component {
 
     render() {
         return (
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.onSubmit} className="w3-center">
                 <h1>Login Below!</h1>
+                <div className="imgcontainer">
+                    <img src={require("./components/" + "Images/img_avatar.png")} className="avatar" alt="Avatar" />
+                </div>
                 <input
-                    type="email"
-                    name="email"
-                    placeholder="Enter email"
-                    value={this.state.email}
+                    type="text"
+                    name="username"
+                    placeholder="Enter UserName"
+                    value={this.state.username}
                     onChange={this.handleInputChange}
                     required
                 />
@@ -58,7 +67,21 @@ class Login extends Component {
                     onChange={this.handleInputChange}
                     required
                 />
+                <div>
+                <label>
+                   Remember Me:
+                <input
+                    name="rememberMe"
+                    type="checkbox"
+                    checked={this.state.rememberMe}
+                    className="checkmark"
+                    onChange={this.toggleRememberMe}/>
+                    </label>
+                </div>
                 <input type="submit" value="Submit"/>
+                <div className="container signin">
+                    <p>Don't have an account? <a href="/register">Register</a>.</p>
+                </div>
             </form>
         );
     }

@@ -27,10 +27,6 @@ const routing = (
         </ProductProvider>
     </BrowserRouter>
 )
-// routing,
-//
-// ReactDOM.render(<App />, document.getElementById('root'));
-// serviceWorker.register();
 
 ReactDOM.render(
 routing,

@@ -118,8 +118,8 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/authenticate', function(req, res) {
-    const { email, password } = req.body;
-    User.findOne({ email }, function(err, user) {
+    const { username, password, rememberMe } = req.body;
+    User.findOne({ username }, function(err, user) {
         if (err) {
             console.error(err);
             res.status(500)
@@ -129,7 +129,7 @@ router.post('/authenticate', function(req, res) {
         } else if (!user) {
             res.status(401)
                 .json({
-                    error: 'Incorrect email or password'
+                    error: 'Incorrect username or password'
                 });
         } else {
             user.isCorrectPassword(password, function(err, same) {
@@ -141,16 +141,22 @@ router.post('/authenticate', function(req, res) {
                 } else if (!same) {
                     res.status(401)
                         .json({
-                            error: 'Incorrect email or password'
+                            error: 'Incorrect username or password'
                         });
                 } else {
-                    // Issue token
-                    const payload = { email };
-                    const token = jwt.sign(payload, secret, {
-                        expiresIn: '5m'
-                    });
-                    res.cookie('token', token, { httpOnly: true })
-                        .sendStatus(200);
+                    if (rememberMe) {
+                        // Issue token
+                        console.log("Sending request with token")
+                        const payload = {username};
+                        const token = jwt.sign(payload, secret, {
+                            expiresIn: '5m'
+                        });
+                        res.cookie('token', token, {httpOnly: true})
+                            .sendStatus(200);
+                    } else{
+                        console.log("Sending request with No token")
+                        res.sendStatus(200);
+                    }
                 }
             });
         }

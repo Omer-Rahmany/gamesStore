@@ -12,7 +12,7 @@ class Cart extends Component {
                 <ProductConsumer>
                     {value => {
                         const {cart} = value;
-                        if(cart.length == 0) {
+                        if(cart.length === 0) {
                             return (
                                 <Title name="your" title="cart is empty" />
                                 );

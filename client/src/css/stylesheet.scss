@@ -179,3 +179,26 @@ $blue_theme: #70a1ff;
 .show {
     visibility: visible;
 }
+
+.w3-center {
+    text-align: center!important;
+}
+
+.avatar {
+    width: 20%;
+    height: 20%;
+    border-radius: 20%;
+    margin-bottom: 20px;
+}
+
+.signin {
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.checkmark {
+    margin-left: 9px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+}
