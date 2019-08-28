@@ -3,11 +3,14 @@ import CartColumns from "./CartColumns";
 import Title from "./Title";
 import {ProductConsumer} from "../context";
 import CartList from "./CartList";
+import Navbar from "./Navbar";
 // import CartTotal from "./CartTotal";
 
 class Cart extends Component {
     render() {
         return (
+            <React.Fragment>
+                <Navbar />
             <section>
                 <ProductConsumer>
                     {value => {
@@ -29,6 +32,7 @@ class Cart extends Component {
                     }}
                 </ProductConsumer>
             </section>
+            </React.Fragment>
         );
     }
 }

@@ -2,12 +2,15 @@ import React, {Component} from 'react';
 import {ProductConsumer} from "../context";
 import {Link} from "react-router-dom";
 import {ButtonContainer} from "./style-components/button";
+import Navbar from "./Navbar";
 
 // const {_id, name, image, price, inCart} = this.props.product;
 // const {_id, name, image, price, inCart} = value.detailedProduct;
 class Details extends Component {
     render() {
         return (
+            <React.Fragment>
+                <Navbar />
             <ProductConsumer>
                 {value => {
                     const {_id, name, image, price, inCart, details} = value.detailedProduct;
@@ -60,7 +63,7 @@ class Details extends Component {
                     )
                 }}
             </ProductConsumer>
-
+            </React.Fragment>
 
         );
     }
