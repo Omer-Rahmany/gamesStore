@@ -6,7 +6,6 @@ import Cart from './Cart';
 import Default from './Default';
 import '../css/shopping.css';
 import {Switch,Route} from "react-router-dom";
-import {ProductProvider} from "../context";
 
 class Home extends Component {
 
