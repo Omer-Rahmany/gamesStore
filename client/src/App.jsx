@@ -1,4 +1,4 @@
-// /client/App.js
+// /client/App.jsx
 import React, { Component } from 'react';
 import { Link, Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 
