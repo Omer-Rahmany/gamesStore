@@ -17,7 +17,7 @@ class Navbar extends Component {
                         products
                     </Link>
                     <li className="nav-item ml-5"></li>
-                    <Link to="/home" className="nav-link">
+                    <Link to="/about" className="nav-link">
                         about us
                     </Link>
                 </ul>
