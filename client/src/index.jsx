@@ -9,6 +9,7 @@ import Login from "./Login";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
 import About from "./components/About";
+import Checkout from "./components/Checkout";
 import {ProductProvider} from "./context";
 
 const routing = (
@@ -22,6 +23,7 @@ const routing = (
             <Route exact path="/details" component={Details} />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/checkout" component={Checkout} />
 
         </div>
         </ProductProvider>

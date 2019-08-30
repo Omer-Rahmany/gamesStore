@@ -11,6 +11,8 @@ const cookieParser = require('cookie-parser');
 const withAuth = require('./middleware');
 
 
+
+
 let cors = require('cors');
 const API_PORT = 3001;
 const app = express();
@@ -161,6 +163,10 @@ router.post('/authenticate', function(req, res) {
             });
         }
     });
+});
+
+router.post("/charge", async (req, res) => {
+    res.status(200).send("Purchase Saved");
 });
 
 // append /api for our http requests
