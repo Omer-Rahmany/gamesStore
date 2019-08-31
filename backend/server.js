@@ -45,6 +45,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 // app.use(bodyParser.json());
 app.use(logger('dev'));
 
+
+router.get('/',function(req,res){
+    res.json({"error" : false, "message" : "Hello !"});
+});
+
+
 // this is our get method
 // this method fetches all available data in our database
 router.get('/getProductData', (req, res) => {
@@ -140,8 +146,8 @@ router.post('/authenticate', function (req, res) {
                     if (rememberMe) {
                         // Issue token
                         console.log("Sending request with token")
-                        const payload = {username};
-                        const token = jwt.sign(payload, secret, {
+                        const user = {username};
+                        const token = jwt.sign(user, secret, {
                             expiresIn: '5m'
                         });
                         res.cookie('token', token, {httpOnly: true})
