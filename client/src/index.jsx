@@ -12,6 +12,9 @@ import About from "./components/About";
 import Checkout from "./components/Checkout";
 import Admin from "./components/Admin";
 import {ProductProvider} from "./context";
+import README from "./README";
+import OmerRahmanyREADME from "./OmerRahmanyREADME";
+import NoamTiramREADME from "./NoamTiramREADME";
 
 const routing = (
     <BrowserRouter>
@@ -26,6 +29,9 @@ const routing = (
                 <Route exact path="/about" component={About}/>
                 <Route exact path="/checkout" component={Checkout}/>
                 <Route exact path="/admin" component={Admin}/>
+                <Route exact path="/readme.html" component={README}/>
+                <Route exact path="/omer_rahmany_readme" component={OmerRahmanyREADME}/>
+                <Route exact path="/noam_tiram_readme" component={NoamTiramREADME}/>
             </div>
         </ProductProvider>
     </BrowserRouter>

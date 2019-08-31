@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const ButtonContainer = styled.button`
   color: black;
   font-size: 1.4rem;
-  background: transparent;
   margin: 1em;
   padding: 0.25em 1em;
   

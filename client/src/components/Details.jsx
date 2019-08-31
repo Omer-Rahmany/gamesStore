@@ -4,8 +4,6 @@ import {Link} from "react-router-dom";
 import {ButtonContainer} from "./style-components/button";
 import Navbar from "./Navbar";
 
-// const {_id, name, image, price, inCart} = this.props.product;
-// const {_id, name, image, price, inCart} = value.detailedProduct;
 class Details extends Component {
     render() {
         return (
@@ -16,7 +14,6 @@ class Details extends Component {
                         const {_id, name, image, price, inCart, details} = value.detailedProduct;
                         console.log(value.detailedProduct);
                         return (
-
                             <div className="container py-5">
 
                                 <div className="row">

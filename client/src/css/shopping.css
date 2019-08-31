@@ -1,9 +1,8 @@
 :root {
-    --mainBlue: #2a2a2a;
+    --mainBlue: #103155;
     --lightBlue: #009ffd;
     --mainWhite: #f3f3f3;
 }
-
 body {
     font-family: "Oswald", sans-serif !important;
     background: var(--mainWhite) !important;
@@ -15,7 +14,6 @@ body {
     letter-spacing: 0.3rem;
     text-transform: uppercase;
 }
-
 .text-blue {
     color: var(--mainBlue);
 }
