@@ -36,13 +36,9 @@ class OmerRahmanyREADME extends Component {
                         lifecycle of the web application.
                     </li>
                 </p>
-                <h2>Who is your partner? name and id. What did you do? What did your partner do?</h2>
-                <p>
-                    <li>Omer rahmany - 304847924 - was responsible mostly for the backend, register, login, cookies,
-                        DB
-                    </li>
-                    <li>Noam Tiram - 303066427 - was responsible mostly for the frontend, UI, store DB</li>
-                </p>
+                <h2>Who is your partner?  name and id. What did you do? What did your partner do?</h2>
+                <p><li>Omer rahmany - 304847924 - was responsible mostly for the backend, register, login, cookies, DB, UI and Checkout</li>
+                    <li>Noam Tiram - 303066427 - was responsible mostly for the frontend, UI, and a little backend with store DB and REST API for it</li></p>
                 <h2>Specify all the different route your app supports</h2>
                 <p>
                     <li>"/"</li>
@@ -57,6 +53,8 @@ class OmerRahmanyREADME extends Component {
                     <li>"/readme.html"</li>
                     <li>"/omer_rahmany_readme"</li>
                     <li>"/noam_tiram_readme"</li>
+                    <li>In addition, there is internal API for us to add items to DB.
+                        we use REST API in the following: http://localhost:3000/api/Items/ </li>
                 </p>
                 <h2>How did you make your store secured?</h2>
                 <p>Whenever a user is logging in, we store a cookie with access token which expires after 5 min.
