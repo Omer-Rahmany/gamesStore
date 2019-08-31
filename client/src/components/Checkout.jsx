@@ -7,6 +7,8 @@ import {
 } from 'react-stripe-elements'
 
 import Navbar from "./Navbar";
+import {ProductConsumer} from "../context";
+import {ButtonContainer} from "./style-components/button";
 
 
 const MyComponent = () => {
@@ -58,6 +60,7 @@ class Checkout extends Component {
         })
             .then(res => {
                 if (res.status === 200) {
+
                     console.log("Purchase Complete!")
                     alert('Purchase Complete!');
                 } else {
@@ -75,21 +78,29 @@ class Checkout extends Component {
         return (
             <React.Fragment>
                 <Navbar/>
-                <div className="py-5">
-                    <div className="container">
-                        <form onSubmit={this.onSubmit}>
-                            <div className="checkout">
-                                <div className="form-row">
-                                    <div id="card-element">
-                                        <p>Insert Credit Card to complete the purchase</p>
-                                        <MyComponent/>
+                <ProductConsumer>
+                    {value => {
+                        return (
+                        <div className="py-5">
+                            <div className="container">
+                                <form onSubmit={this.onSubmit}>
+                                    <div className="checkout">
+                                        <div className="form-row">
+                                            <div id="card-element">
+                                                <p>Insert Credit Card to complete the purchase</p>
+                                                <MyComponent/>
+                                            </div>
+                                        </div>
+                                        <input type="submit" value="Submit Payment" onClick={() => {
+                                            value.clearCart();
+                                        }}/>
                                     </div>
-                                </div>
-                                <input type="submit" value="Submit Payment"/>
+                                </form>
                             </div>
-                        </form>
-                    </div>
-                </div>
+                        </div>
+                        )
+                    }}
+                        </ProductConsumer>
             </React.Fragment>
         );
     }
