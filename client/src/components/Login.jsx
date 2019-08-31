@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import "./css/stylesheet.scss";
+import "../css/stylesheet.scss";
 
 class Login extends Component {
     constructor(props) {
@@ -48,7 +48,7 @@ class Login extends Component {
         return (
             <form onSubmit={this.onSubmit} className="w3-center">
                 <h1>Login Below!</h1>
-                <img src={require("./components/" + "Images/img_avatar.png")} className="avatar" alt="Avatar"/>
+                <img src={require("./Images/img_avatar.png")} className="avatar" alt="Avatar"/>
                 <div>
                     <input
                         type="text"

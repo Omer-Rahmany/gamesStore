@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link, Redirect, Switch, BrowserRouter as Router} from 'react-router-dom';
-import Login from "./Login";
-import Register from "./Register";
+import Login from "./components/Login";
+import Register from "./components/Register";
 import "./css/stylesheet.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 

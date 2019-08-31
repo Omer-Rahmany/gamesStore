@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import "./css/stylesheet.scss";
+import "../css/stylesheet.scss";
 
 class Register extends Component {
     constructor(props) {
