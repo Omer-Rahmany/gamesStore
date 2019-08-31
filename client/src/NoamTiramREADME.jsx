@@ -37,6 +37,8 @@ class NoamTiramREADME extends Component {
                         <li>"/readme.html"</li>
                         <li>"/omer_rahmany_readme"</li>
                         <li>"/noam_tiram_readme"</li>
+                        <li>In addition, there is internal API for us to add items to DB.
+                        we use REST API in the following: http://localhost:3000/api/Items/ </li>
                     </p>
                     <h2>How did you make your store secured?</h2>
                     <p>Whenever a user is logging in, we store a cookie with access token which expires after 5 min.
