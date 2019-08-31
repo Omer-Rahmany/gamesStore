@@ -10,6 +10,7 @@ import Details from "./components/Details";
 import Cart from "./components/Cart";
 import About from "./components/About";
 import Checkout from "./components/Checkout";
+import Admin from "./components/Admin";
 import {ProductProvider} from "./context";
 
 const routing = (
@@ -24,6 +25,7 @@ const routing = (
                 <Route exact path="/cart" component={Cart}/>
                 <Route exact path="/about" component={About}/>
                 <Route exact path="/checkout" component={Checkout}/>
+                <Route exact path="/admin" component={Admin}/>
             </div>
         </ProductProvider>
     </BrowserRouter>

@@ -50,6 +50,14 @@ router.get('/',function(req,res){
     res.json({"error" : false, "message" : "Hello !"});
 });
 
+// this is our get method
+// this method fetches all available User data in our database
+router.get('/getAllUsers', (req, res) => {
+    User.find((err, users) => {
+        if (err) return res.json({success: false, error: err});
+        return res.json({success: true, users: users});
+    });
+});
 
 // this is our get method
 // this method fetches all available data in our database

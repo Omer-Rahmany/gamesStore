@@ -40,7 +40,6 @@ class ProductList extends Component {
                 // If it does, it will be added to newList. Using lowercase eliminates
                 // issues with capitalization in search terms and search content
                 return lc.includes(filter);
-                return lc;
             });
         } else {
             // If the search bar is empty, set newList to original task list

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import "../css/stylesheet.scss";
+import UserProfile from './UserProfile';
+import Cookies from 'js-cookie';
 
 class Login extends Component {
     constructor(props) {
@@ -33,6 +35,11 @@ class Login extends Component {
         })
             .then(res => {
                 if (res.status === 200) {
+                    UserProfile.setName(this.state.username);
+                    let inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
+                    Cookies.set('name', this.state.username, {
+                        expires: inFiveMinutes
+                    });
                     this.props.history.push('/home');
                 } else {
                     const error = new Error(res.error);

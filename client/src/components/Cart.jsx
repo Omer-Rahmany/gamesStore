@@ -25,16 +25,15 @@ class Cart extends Component {
                             } else {
                                 return (
                                     <React.Fragment>
+                                        <Title name="your" title="cart"/>
+                                        <CartColumns/>
+                                        <CartList value={value}/>
                                         <Link to="/checkout" className="ml-auto">
                                             <CheckOutButtonContainer>
                                                 <i className="fas fa-cart-arrow-down"/>
                                                 CheckOut
                                             </CheckOutButtonContainer>
                                         </Link>
-                                        <Title name="your" title="cart"/>
-                                        <CartColumns/>
-                                        <CartList value={value}/>
-                                        {/*<CartTotal value={value} />*/}
                                     </React.Fragment>
                                 );
                             }

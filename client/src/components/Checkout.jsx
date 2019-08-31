@@ -8,7 +8,6 @@ import {
 
 import Navbar from "./Navbar";
 import {ProductConsumer} from "../context";
-import {ButtonContainer} from "./style-components/button";
 
 
 const MyComponent = () => {

@@ -84,6 +84,7 @@ class ProductProvider extends Component {
         let total = 0;
         this.state.cart.map(item => {
             total += item.total;
+            return total
         });
         this.setState(() => {
             return {

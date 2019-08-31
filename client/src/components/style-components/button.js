@@ -22,6 +22,9 @@ export const CheckOutButtonContainer = styled.button`
   background: transparent;
   margin: 1em;
   padding: 0.25em 1em;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
   
   border-radius: 3px;
   &:hover{
