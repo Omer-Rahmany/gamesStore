@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, BrowserRouter } from 'react-router-dom';
+import {Route, BrowserRouter} from 'react-router-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Home from './components/Home';
@@ -15,22 +15,21 @@ import {ProductProvider} from "./context";
 const routing = (
     <BrowserRouter>
         <ProductProvider>
-        <div>
-            <Route exact path="/" component={App} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/register" component={Register} />
-            <Route path="/login" component={Login} />
-            <Route exact path="/details" component={Details} />
-            <Route exact path="/cart" component={Cart} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/checkout" component={Checkout} />
-
-        </div>
+            <div>
+                <Route exact path="/" component={App}/>
+                <Route exact path="/home" component={Home}/>
+                <Route exact path="/register" component={Register}/>
+                <Route path="/login" component={Login}/>
+                <Route exact path="/details" component={Details}/>
+                <Route exact path="/cart" component={Cart}/>
+                <Route exact path="/about" component={About}/>
+                <Route exact path="/checkout" component={Checkout}/>
+            </div>
         </ProductProvider>
     </BrowserRouter>
 )
 
 ReactDOM.render(
-routing,
+    routing,
     document.getElementById('root'));
 serviceWorker.register();

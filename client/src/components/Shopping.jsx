@@ -24,7 +24,7 @@ class Shopping extends React.Component {
                     </div>
                     <div className="col-6">
                         <span>
-                            <i className="fas fa-home" />
+                            <i className="fas fa-home"/>
                         </span>
 
                     </div>

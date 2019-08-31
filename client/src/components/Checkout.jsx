@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 import {
     StripeProvider,
     Elements,
@@ -15,10 +15,10 @@ const MyComponent = () => {
             const script = document.createElement('script')
             script.src = src
             script.addEventListener('load', () => {
-                resolve({ successful: true })
+                resolve({successful: true})
             })
             script.addEventListener('error', event => {
-                reject({ error: event })
+                reject({error: event})
             })
             document.head.appendChild(script)
         })
@@ -32,10 +32,10 @@ const MyComponent = () => {
         fetchData()
     }, [])
 
-    return  stripeLoaded.successful ?(
+    return stripeLoaded.successful ? (
         <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
             <Elements>
-                <CardNumberElement />
+                <CardNumberElement/>
             </Elements>
         </StripeProvider>) : null
 }
@@ -74,17 +74,17 @@ class Checkout extends Component {
     render() {
         return (
             <React.Fragment>
-                <Navbar />
+                <Navbar/>
                 <div className="py-5">
                     <div className="container">
                         <form onSubmit={this.onSubmit}>
                             <div className="checkout">
-                            <div className="form-row">
-                                <div id="card-element">
-                                    <p>Insert Credit Card to complete the purchase</p>
-                                    <MyComponent />
+                                <div className="form-row">
+                                    <div id="card-element">
+                                        <p>Insert Credit Card to complete the purchase</p>
+                                        <MyComponent/>
+                                    </div>
                                 </div>
-                            </div>
                                 <input type="submit" value="Submit Payment"/>
                             </div>
                         </form>

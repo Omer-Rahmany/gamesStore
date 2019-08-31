@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom';
 import {ProductConsumer} from "../context";
 
 
-
 class Product extends Component {
     render() {
         const {_id, name, image, price, inCart} = this.props.product;
@@ -17,23 +16,23 @@ class Product extends Component {
                     <ProductConsumer>
                         {(value) => (
                             <div className="img-container p-5"
-                                 onClick={()=>
-                                    value.handleProduct(_id)
+                                 onClick={() =>
+                                     value.handleProduct(_id)
                                  }>
                                 <Link to="/details">
-                                    <img src={require("./" + image)} alt="product" className="card-img-top" />
+                                    <img src={require("./" + image)} alt="product" className="card-img-top"/>
                                 </Link>
                                 <button className="cart-btn"
                                         disabled={inCart}
                                         onClick={() => {
                                             value.addToCart(_id)
                                         }}>
-                                    {inCart? (
+                                    {inCart ? (
                                         <p className="text-capitalize mb-0" disabled>
                                             {" "}
                                             In Cart!
                                         </p>) : (
-                                        <i className="fas fa-cart-plus" />
+                                        <i className="fas fa-cart-plus"/>
                                     )}
                                 </button>
 

@@ -7,7 +7,7 @@ class About extends Component {
     render() {
         return (
             <React.Fragment>
-                <Navbar />
+                <Navbar/>
                 <h1>About GameShop</h1>
                 <div>We are the best game shopping website on the web</div>
                 <h2>What we offer</h2>
@@ -16,4 +16,5 @@ class About extends Component {
         );
     }
 }
+
 export default About;

@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import "./css/stylesheet.scss";
 
 class Login extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            email : '',
             username: '',
             password: '',
-            rememberMe:true
+            rememberMe: true
         };
     }
+
     handleInputChange = (event) => {
-        const { value, name } = event.target;
+        const {value, name} = event.target;
         this.setState({
             [name]: value
         });
@@ -48,41 +48,39 @@ class Login extends Component {
         return (
             <form onSubmit={this.onSubmit} className="w3-center">
                 <h1>Login Below!</h1>
-                <div className="imgcontainer">
-                    <img src={require("./components/" + "Images/img_avatar.png")} className="avatar" alt="Avatar" />
+                <img src={require("./components/" + "Images/img_avatar.png")} className="avatar" alt="Avatar"/>
+                <div>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter User Name"
+                        value={this.state.username}
+                        onChange={this.handleInputChange}
+                        required
+                    />
                 </div>
                 <div>
-                <input
-                    type="text"
-                    name="username"
-                    placeholder="Enter User Name"
-                    value={this.state.username}
-                    onChange={this.handleInputChange}
-                    required
-                />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter password"
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        required
+                    />
                 </div>
                 <div>
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Enter password"
-                    value={this.state.password}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                </div>
-                <div>
-                <label>
-                   Remember Me:
-                <input
-                    name="rememberMe"
-                    type="checkbox"
-                    checked={this.state.rememberMe}
-                    className="checkmark"
-                    onChange={this.toggleRememberMe}/>
+                    <label>
+                        Remember Me:
+                        <input
+                            name="rememberMe"
+                            type="checkbox"
+                            checked={this.state.rememberMe}
+                            className="checkmark"
+                            onChange={this.toggleRememberMe}/>
                     </label>
                 </div>
-                <input type="submit" value="Submit"/>
+                <input type="submit" value="Login"/>
                 <div className="container signin">
                     <p>Don't have an account? <a href="/register">Register</a>.</p>
                 </div>

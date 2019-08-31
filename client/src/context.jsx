@@ -12,7 +12,7 @@ class ProductProvider extends Component {
             products: [],
             detailedProduct: [],
             cart: [],
-            cartTotal:0
+            cartTotal: 0
         }
     };
 
@@ -31,9 +31,11 @@ class ProductProvider extends Component {
         product.total = product.price * product.count;
         this.setState(() => {
             return {
-                cart:[...tempCart]
+                cart: [...tempCart]
             }
-        },() => {this.addTotal()})
+        }, () => {
+            this.addTotal()
+        })
     };
 
     decrement = (id) => {
@@ -45,9 +47,11 @@ class ProductProvider extends Component {
         product.total = product.price * product.count;
         this.setState(() => {
             return {
-                cart:[...tempCart]
+                cart: [...tempCart]
             }
-        },() => {this.addTotal()})
+        }, () => {
+            this.addTotal()
+        })
     };
 
     removeItem = (id) => {
@@ -60,16 +64,16 @@ class ProductProvider extends Component {
         removedProduct.total = 0;
         this.setState(() => {
             return {
-                cart:[...tempCart],
-                products:[...tempProducts]
+                cart: [...tempCart],
+                products: [...tempProducts]
             }
-        },() => this.addTotal())
+        }, () => this.addTotal())
     };
 
     clearCart = () => {
-        this.setState(() =>{
-            return {cart:[]}
-        },() => {
+        this.setState(() => {
+            return {cart: []}
+        }, () => {
             console.log("cart cleared");
             this.getDataFromDb();
             this.addTotal();
@@ -83,7 +87,7 @@ class ProductProvider extends Component {
         });
         this.setState(() => {
             return {
-                cartTotal:total
+                cartTotal: total
             }
         })
     };
@@ -91,7 +95,7 @@ class ProductProvider extends Component {
     handleProduct = (id) => {
         const product = this.getItem(id);
         this.setState(() => {
-            return {detailedProduct:product}
+            return {detailedProduct: product}
         });
     };
 
@@ -102,18 +106,18 @@ class ProductProvider extends Component {
         product.inCart = true;
         product.count = 1;
         product.total = product.price;
-        this.setState(()=>{
-            return {products: tempProducts, cart:[...this.state.cart, product]};
-        },()=>this.addTotal());
+        this.setState(() => {
+            return {products: tempProducts, cart: [...this.state.cart, product]};
+        }, () => this.addTotal());
     };
 
     componentDidMount() {
         this.getDataFromDb();
     };
 
-    getDataFromDb  = async () => {
+    getDataFromDb = async () => {
         axios.get("http://localhost:3001/api/getProductData")
-            .then((res) => this.setState({ products: res.data.data, success: res.data.success }))
+            .then((res) => this.setState({products: res.data.data, success: res.data.success}))
             .catch(err => console.log(err));
     };
 

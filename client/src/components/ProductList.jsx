@@ -14,14 +14,14 @@ class ProductList extends Component {
     }
 
     handleChange(e) {
-            // Set the filtered state based on what our rules added to newList
-            this.setState({
-                filterTerm: e.target.value
-            });
+        // Set the filtered state based on what our rules added to newList
+        this.setState({
+            filterTerm: e.target.value
+        });
     }
 
     filter(currentList) {
-        if (currentList.length === 0){
+        if (currentList.length === 0) {
             return currentList;
         }
         // Variable to hold the filtered list before putting into state
@@ -46,28 +46,27 @@ class ProductList extends Component {
             // If the search bar is empty, set newList to original task list
             newList = currentList;
         }
-       return newList
+        return newList
     }
 
 
     render() {
         return (
             <React.Fragment>
-                <input type="text" className="input searchTerm" onChange={this.handleChange.bind(this)}
-                       placeholder="Search..." />
-
                 <div className="py-5">
                     <div className="container">
-                        <Title name="our" title="products" />
+                        <Title name="our" title="products"/>
+                        <input type="text" className="input searchTerm" onChange={this.handleChange.bind(this)}
+                               placeholder="Search..."/>
                         <div className="row">
-                        <ProductConsumer>
-                            {(value)=> {
-                                let filterd =  this.filter(value.products)
-                                return filterd.map(product => {
-                                    return <Product key={product._id} product={product} />
-                                })
-                            }}
-                        </ProductConsumer>
+                            <ProductConsumer>
+                                {(value) => {
+                                    let filtered = this.filter(value.products)
+                                    return filtered.map(product => {
+                                        return <Product key={product._id} product={product}/>
+                                    })
+                                }}
+                            </ProductConsumer>
                         </div>
                     </div>
                 </div>
