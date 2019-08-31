@@ -21,8 +21,8 @@ class NoamTiramREADME extends Component {
                     <li>It was hard to understand how to do things correctly with react, e.g how to pass information between components - but youtube come to the rescue and a lot of self learning took place.</li>
                     </p>
                     <h2>Who is your partner?  name and id. What did you do? What did your partner do?</h2>
-                    <p><li>Omer rahmany - 304847924 - was responsible mostly for the backend, register, login, cookies, DB</li>
-                    <li>Noam Tiram - 303066427 - was responsible mostly for the frontend, UI, store DB</li></p>
+                    <p><li>Omer rahmany - 304847924 - was responsible mostly for the backend, register, login, cookies, DB, UI and Checkout</li>
+                    <li>Noam Tiram - 303066427 - was responsible mostly for the frontend, UI, and a little backend with store DB and REST API for it</li></p>
                     <h2>Specify all the different route your app supports</h2>
                     <p>
                         <li>"/"</li>
